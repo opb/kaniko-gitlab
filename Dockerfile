@@ -8,5 +8,5 @@ ADD . .
 RUN CGO_ENABLED=0 go build -o /app/docker-credential-gitlab-login
 
 # final stage
-FROM gcr.io/kaniko-project/executor
+FROM gcr.io/kaniko-project/executor:debug
 COPY --from=build-env /app/docker-credential-gitlab-login /kaniko/
