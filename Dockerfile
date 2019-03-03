@@ -10,5 +10,5 @@ RUN CGO_ENABLED=0 go build -o /app/docker-credential-gitlab-login
 # final stage
 FROM gcr.io/kaniko-project/executor:debug
 ENTRYPOINT ["sh", "-c"]
-RUN ln -s /kaniko/executor /kaniko/build
+RUN ["ln", "-s", "/kaniko/executor", "/kaniko/build"]
 COPY --from=build-env /app/docker-credential-gitlab-login /kaniko/

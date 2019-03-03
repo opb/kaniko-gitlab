@@ -17,5 +17,7 @@ testing kaniko:
 
 Few issues it would be nice to get tidied up:
 
-1. need to set entrypoint
+1. need to use debug image in order to have `sh` available. This is needed because gitlab runners using the docker executor will normally set a shell. Need to try a runner config which won't try to use a shell not sure if this is possible.
+2. have to set `--context` because can't configure gitlab to use simply `/workspace`. Could potentially overwrite the way the command is called in our Dockerfile, removing need for this step.
+3. need something better for setting the docker `config.json`. Very ugly right now. 
  
