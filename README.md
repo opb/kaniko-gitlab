@@ -10,7 +10,7 @@ testing kaniko:
   image: opb2k/kaniko-gitlab
   script:
     - echo '{"credHelpers":{"my.gitlab.server:4567":"gitlab-login"}}' > /kaniko/.docker/config.json
-    - '/kaniko/executor --destination ${CI_REGISTRY_IMAGE}:latest --context $CI_PROJECT_DIR'
+    - 'kaniko-build --destination ${CI_REGISTRY_IMAGE}:latest --context $CI_PROJECT_DIR'
 ```
 
 Few issues it would be nice to get tidied up:
